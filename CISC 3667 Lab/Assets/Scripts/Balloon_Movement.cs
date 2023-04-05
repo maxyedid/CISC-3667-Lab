@@ -10,6 +10,8 @@ public class Balloon_Movement : MonoBehaviour
 
     public int direction = -1;
 
+    public AudioSource pop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class Balloon_Movement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag.Equals("Projectile")) {
             Debug.Log("Balloon hit");
+            AudioSource.PlayClipAtPoint(pop.clip, new Vector2(0, 0));
             Destroy(gameObject);
         }
     }
