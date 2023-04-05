@@ -25,9 +25,17 @@ public class Balloon_Movement : MonoBehaviour
     private void FixedUpdate() {
         balloon.velocity = new Vector2(speed * direction, 0);
     }
-    private void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag.Equals("Wall")) {
             direction = 0 - direction;
+            Debug.Log("Wall hit");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag.Equals("Projectile")) {
+            Debug.Log("Balloon hit");
+            Destroy(gameObject);
         }
     }
 }

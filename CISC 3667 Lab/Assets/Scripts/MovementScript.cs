@@ -12,8 +12,10 @@ public class MovementScript : MonoBehaviour
     public float jumpForce = 500.0f;
     public bool facingRight = true;
     public bool isGrounded = true;
-
     public bool sprinting = false;
+    public GameObject arrow;
+    public float spawnRate = 2.0f;
+    public float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,9 @@ public class MovementScript : MonoBehaviour
         } else {
             sprinting = false;
         }
+        if (Input.GetKey(KeyCode.F)) {
+            fireArrow();
+        } 
     }
 
     private void FixedUpdate() {
@@ -49,8 +54,22 @@ public class MovementScript : MonoBehaviour
         } else {
             jumpPressed = false;
         }
+
+        if (timer < spawnRate) {
+            timer += Time.deltaTime;
+        }
+
     }
 
+    private void fireArrow() {
+        if (timer >= spawnRate) {
+            spawnArrow();
+            timer = 0;
+        }
+    }
+    private void spawnArrow() {
+        Instantiate(arrow, new Vector2(transform.position.x, transform.position.y + 1), arrow.transform.rotation);
+    }
     private void Flip() {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;

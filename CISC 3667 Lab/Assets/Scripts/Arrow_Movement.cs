@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Arrow_Movement : MonoBehaviour
 {
-
     public Rigidbody2D arrow;
-    public float speed = 2;
+    public float speed = 4;
+
+    public float deadZone = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,9 @@ public class Arrow_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y > deadZone) {
+            Destroy(gameObject);
+        }
     }
+
 }
