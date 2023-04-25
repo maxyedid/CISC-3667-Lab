@@ -9,8 +9,6 @@ public class BirdSpawn : MonoBehaviour
     public float timer = 0;
 
     public float spawnRate;
-
-    public 
     // Start is called before the first frame update
     void Start()
     {

@@ -50,7 +50,6 @@ public class Balloon_Movement : MonoBehaviour
             AudioSource.PlayClipAtPoint(pop.clip, new Vector2(0, 0));
             logic.addScore(currentScore);
             Destroy(gameObject);
-            SceneManager.LoadScene("Level 2");
         }
     }
 

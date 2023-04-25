@@ -20,7 +20,10 @@ public class Bird_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x <= deadZone * direction) {
+        if (direction < 0 && transform.position.x <= deadZone * direction) {
+            Destroy(gameObject);
+        }
+        else if (direction > 0 && transform.position.x >= deadZone * direction) {
             Destroy(gameObject);
         }
     }
