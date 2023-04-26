@@ -2241,7 +2241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 5075631469183617861, guid: 1fa0a4407cd05c64b839045db9d12ccb, type: 3}
+  speed: 5
   timer: 0
+  minTime: 1
+  maxTime: 3
   spawnRate: 0
 --- !u!4 &1042243037
 Transform:
@@ -3161,6 +3164,18 @@ PrefabInstance:
     - target: {fileID: 242919217389091846, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
       propertyPath: m_Name
       value: RightBirdSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091847, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091847, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: maxTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091847, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: minTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118e27f84ecf84e9a98e015909897372, type: 3}

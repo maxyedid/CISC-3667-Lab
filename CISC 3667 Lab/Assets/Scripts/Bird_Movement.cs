@@ -6,7 +6,7 @@ public class Bird_Movement : MonoBehaviour
 {
     public Rigidbody2D birdBody;
 
-    public float speed = 2;
+    public float speed = 3;
 
     public int direction = -1;
 

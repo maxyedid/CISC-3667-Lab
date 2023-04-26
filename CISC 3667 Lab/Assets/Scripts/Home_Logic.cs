@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Home_Logic : MonoBehaviour
 {
-
     public AudioSource music;
     public Slider volumeControl;
     // Start is called before the first frame update
@@ -23,6 +22,7 @@ public class Home_Logic : MonoBehaviour
     }
 
     public void play() {
+        PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene("Level 1");
     }
 
