@@ -11,9 +11,12 @@ public class Bird_Movement : MonoBehaviour
     public int direction = -1;
 
     public float deadZone = 9f;
+
+    public LogicScript logic;
     // Start is called before the first frame update
     void Start()
     {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         birdBody.velocity = new Vector2(speed * direction, 0);
     }
 
@@ -30,7 +33,8 @@ public class Bird_Movement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag.Equals("Player")) {
-            Debug.Log("Bird hit player");
+            Destroy(other.gameObject);
+            logic.gameOver();
         }
     }
 }

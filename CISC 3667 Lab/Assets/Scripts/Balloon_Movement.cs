@@ -32,6 +32,7 @@ public class Balloon_Movement : MonoBehaviour
     {
         if (transform.localScale.y > .27f) {
             Destroy(gameObject);
+            logic.gameOver();
         }
     }
 
