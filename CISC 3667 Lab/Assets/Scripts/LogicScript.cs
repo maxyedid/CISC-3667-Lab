@@ -12,31 +12,30 @@ public class LogicScript : MonoBehaviour
 
     public bool hasScore;
     [SerializeField] public Text scoreText;
-
     public int level;
+    public GameObject pauseScreen;
+    public bool paused = false;
 
     void Start()
     {
-        hasScore = PlayerPrefs.HasKey("playerScore");
-        scoreText.text = (hasScore) ? PlayerPrefs.GetInt("playerScore").ToString() : scoreText.text.ToString();
+        scoreText.text = PlayerPrefs.GetInt("playerScore", 0).ToString();
         level = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P) && !paused) {
+            pauseGame();
+        } else if (Input.GetKeyDown(KeyCode.P) && paused) {
+            unPauseGame();
+        }
     }
     public void addScore(int score) {
-        bool hasScore = PlayerPrefs.HasKey("playerScore");
-        if (hasScore) {
-            playerScore = PlayerPrefs.GetInt("playerScore") + score;
-        } else {
-            playerScore = score;
-        }
+        playerScore = PlayerPrefs.GetInt("playerScore", 0) + score;
         PlayerPrefs.SetInt("playerScore", playerScore);
         scoreText.text = playerScore.ToString();
-        if (level != 2) {
+        if (level != 3) {
         SceneManager.LoadScene(level + 1);
         }
     }
@@ -46,6 +45,27 @@ public class LogicScript : MonoBehaviour
         PlayerPrefs.SetInt("playerScore", 0);
         playerScore = 0;
         scoreText.text = playerScore.ToString();
+    }
+
+[ContextMenu("Pause Game")]
+    public void pauseGame() {
+        Time.timeScale = 0;
+        pauseScreen.SetActive(true);
+        paused = true;
+    }
+
+[ContextMenu("Unpause")]
+    public void unPauseGame() {
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
+        paused = false;
+    }
+
+    public void backToHome() {
+        resetScore();
+        unPauseGame();
+        paused = false;
+        SceneManager.LoadScene("Home Screen");
     }
 
 }

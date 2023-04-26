@@ -14,7 +14,7 @@ public class MovementScript : MonoBehaviour
     public bool isGrounded = true;
     public bool sprinting = false;
     public GameObject arrow;
-    public float spawnRate = 2.0f;
+    public float spawnRate = 1.0f;
     public float timer = 0;
     // Start is called before the first frame update
     void Start()

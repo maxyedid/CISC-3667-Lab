@@ -10,6 +10,7 @@ TagManager:
   - Target
   - Distractor
   - Logic
+  - Music
   layers:
   - Default
   - TransparentFX
