@@ -12,7 +12,7 @@ public class Home_Logic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        volumeControl.value = PlayerPrefs.GetFloat("volume", 1f);
     }
 
     // Update is called once per frame
@@ -25,7 +25,8 @@ public class Home_Logic : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
-    public void setVolume(float volume) {
+    public void setVolume() {
         music.volume = volumeControl.value;
+        PlayerPrefs.SetFloat("volume", music.volume);
     }
 }
