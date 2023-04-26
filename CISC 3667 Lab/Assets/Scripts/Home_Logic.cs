@@ -12,6 +12,7 @@ public class Home_Logic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         volumeControl.value = PlayerPrefs.GetFloat("volume", 1f);
     }
 
@@ -27,6 +28,6 @@ public class Home_Logic : MonoBehaviour
 
     public void setVolume() {
         music.volume = volumeControl.value;
-        PlayerPrefs.SetFloat("volume", music.volume);
+        PlayerPrefs.SetFloat("volume", volumeControl.value);
     }
 }
