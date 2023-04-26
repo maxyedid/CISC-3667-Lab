@@ -1407,7 +1407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  hasScore: 0
   scoreText: {fileID: 1167801055}
+  level: 0
 --- !u!4 &853439921
 Transform:
   m_ObjectHideFlags: 0

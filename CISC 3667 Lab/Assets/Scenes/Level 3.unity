@@ -1407,7 +1407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  hasScore: 0
   scoreText: {fileID: 1167801055}
+  level: 0
 --- !u!4 &853439921
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,7 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloon: {fileID: 1479228585}
-  speed: 5
+  speed: 9
   direction: -1
   pop: {fileID: 1479228587}
   currentScore: 0
@@ -2025,3 +2027,60 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &1726641445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20470662
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091844, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242919217389091846, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
+      propertyPath: m_Name
+      value: RightBirdSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
