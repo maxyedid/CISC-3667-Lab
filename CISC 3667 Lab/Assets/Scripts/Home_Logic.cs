@@ -22,7 +22,7 @@ public class Home_Logic : MonoBehaviour
     }
 
     public void play() {
-        PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("Level 1");
     }
 

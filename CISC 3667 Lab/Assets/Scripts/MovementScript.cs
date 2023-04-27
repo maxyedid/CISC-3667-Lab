@@ -16,10 +16,11 @@ public class MovementScript : MonoBehaviour
     public GameObject arrow;
     public float spawnRate = 1.0f;
     public float timer = 0;
+    public LogicScript logic;
     // Start is called before the first frame update
     void Start()
     {
-        
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class MovementScript : MonoBehaviour
     }
 
     private void fireArrow() {
-        if (timer >= spawnRate) {
+        if (timer >= spawnRate && !logic.paused) {
             spawnArrow();
             timer = 0;
         }
