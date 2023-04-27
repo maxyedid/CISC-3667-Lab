@@ -9,7 +9,6 @@ public class LogicScript : MonoBehaviour
     // Start is called before the first frame update
 
     public int playerScore;
-
     public bool hasScore;
     [SerializeField] public Text scoreText;
     public int level;
@@ -17,6 +16,7 @@ public class LogicScript : MonoBehaviour
     public bool paused = false;
     public GameObject gameOverScreen;
     public bool gameIsOver = false;
+    public GameObject nextLevelScreen;
 
     void Start()
     {
@@ -39,6 +39,16 @@ public class LogicScript : MonoBehaviour
         playerScore = PlayerPrefs.GetInt("playerScore", 0) + score;
         PlayerPrefs.SetInt("playerScore", playerScore);
         scoreText.text = playerScore.ToString();
+    }
+
+    public void winScreen() {
+        gameIsOver = true;
+        Time.timeScale = 0;
+        nextLevelScreen.SetActive(true);
+    }
+    public void loadNextScene() {
+        Time.timeScale = 1;
+        nextLevelScreen.SetActive(false);
         if (level != 3) {
         SceneManager.LoadScene(level + 1);
         }
