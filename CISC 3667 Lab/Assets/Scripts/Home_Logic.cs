@@ -43,8 +43,8 @@ public class Home_Logic : MonoBehaviour
 
     void OnGUI() {
         e = Event.current;
-        if (changingFire && e.isKey && e.type == EventType.KeyDown) {
-            Debug.Log("Current Key pressed " + e.keyCode.ToString());
+        if (changingFire && e.isKey) {
+            //Debug.Log("Current Key pressed " + e.keyCode.ToString());
             changingFire = false;
             fireKeyBind.text = e.keyCode.ToString();
             PlayerPrefs.SetInt("fireKey", (int)e.keyCode);
