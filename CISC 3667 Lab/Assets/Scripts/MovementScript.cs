@@ -17,9 +17,11 @@ public class MovementScript : MonoBehaviour
     public float spawnRate = 1.0f;
     public float timer = 0;
     public LogicScript logic;
+    public KeyCode fireKey;
     // Start is called before the first frame update
     void Start()
     {
+        fireKey = (KeyCode) PlayerPrefs.GetInt("fireKey",(int)(KeyCode.F));
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
@@ -35,7 +37,7 @@ public class MovementScript : MonoBehaviour
         } else {
             sprinting = false;
         }
-        if (Input.GetKey(KeyCode.F)) {
+        if (Input.GetKey(fireKey)) {
             fireArrow();
         } 
     }
