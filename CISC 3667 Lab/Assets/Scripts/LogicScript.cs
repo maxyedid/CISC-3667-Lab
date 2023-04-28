@@ -16,6 +16,7 @@ public class LogicScript : MonoBehaviour
     public bool paused = false;
     public GameObject gameOverScreen;
     public bool gameIsOver = false;
+    public bool inSettings = false;
     public GameObject nextLevelScreen;
     public KeyCode pauseKey;
 
@@ -29,7 +30,7 @@ public class LogicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameIsOver) { 
+        if (!gameIsOver && !inSettings) { 
             if (Input.GetKeyDown(pauseKey) && !paused) {
                 pauseGame();
             } else if (Input.GetKeyDown(pauseKey) && paused) {
@@ -82,6 +83,10 @@ public class LogicScript : MonoBehaviour
         unPauseGame();
         SceneManager.LoadScene("Home Screen");
     }
+    
+    public void settings() {
+        inSettings = !inSettings;
+    }
 
     public void gameOver() {
         gameIsOver = true;
@@ -91,5 +96,8 @@ public class LogicScript : MonoBehaviour
     public void playAgain() {
         gameOverScreen.SetActive(false);
         SceneManager.LoadScene(level);
+    }
+    public void changeKey() {
+        pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
     }
 }

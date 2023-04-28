@@ -32,18 +32,20 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = Input.GetAxis("Horizontal");
-        if (Input.GetKey(jumpKey)) {
-            jumpPressed = true;
+        if (!logic.paused) {
+            movement = Input.GetAxis("Horizontal");
+            if (Input.GetKey(jumpKey)) {
+                jumpPressed = true;
+            }
+            if (Input.GetKey(sprintKey)) {
+                sprinting = true;
+            } else {
+                sprinting = false;
+            }
+            if (Input.GetKey(fireKey)) {
+                fireArrow();
+            } 
         }
-        if (Input.GetKey(sprintKey)) {
-            sprinting = true;
-        } else {
-            sprinting = false;
-        }
-        if (Input.GetKey(fireKey)) {
-            fireArrow();
-        } 
     }
 
     private void FixedUpdate() {
@@ -69,7 +71,7 @@ public class MovementScript : MonoBehaviour
     }
 
     private void fireArrow() {
-        if (timer >= spawnRate && !logic.paused) {
+        if (timer >= spawnRate) {
             spawnArrow();
             timer = 0;
         }
@@ -94,5 +96,11 @@ public class MovementScript : MonoBehaviour
         if (other.gameObject.tag.Equals("Ground")) {
             isGrounded = true;
         }
+    }
+
+    public void changeKeys() {
+        fireKey = (KeyCode) PlayerPrefs.GetInt("fireKey",(int)(KeyCode.F));
+        jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
+        sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
     }
 }

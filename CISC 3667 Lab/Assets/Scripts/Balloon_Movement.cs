@@ -27,7 +27,7 @@ public class Balloon_Movement : MonoBehaviour
     void Update()
     {
         if (transform.localScale.y > .27f) {
-           // AudioSource.PlayClipAtPoint(pop.clip, new Vector2(0, 0), PlayerPrefs.GetFloat("volume", 1f));
+            AudioSource.PlayClipAtPoint(pop.clip, new Vector2(0, 0), PlayerPrefs.GetFloat("volume", 1f));
             Destroy(gameObject);
             logic.gameOver();
         }
