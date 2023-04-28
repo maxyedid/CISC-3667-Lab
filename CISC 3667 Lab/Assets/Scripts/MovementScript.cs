@@ -18,10 +18,14 @@ public class MovementScript : MonoBehaviour
     public float timer = 0;
     public LogicScript logic;
     public KeyCode fireKey;
+    public KeyCode jumpKey;
+    public KeyCode sprintKey;
     // Start is called before the first frame update
     void Start()
     {
         fireKey = (KeyCode) PlayerPrefs.GetInt("fireKey",(int)(KeyCode.F));
+        jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
+        sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
@@ -29,10 +33,10 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(jumpKey)) {
             jumpPressed = true;
         }
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey(sprintKey)) {
             sprinting = true;
         } else {
             sprinting = false;

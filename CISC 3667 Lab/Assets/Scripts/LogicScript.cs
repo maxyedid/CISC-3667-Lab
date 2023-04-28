@@ -17,9 +17,11 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public bool gameIsOver = false;
     public GameObject nextLevelScreen;
+    public KeyCode pauseKey;
 
     void Start()
     {
+        pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
         scoreText.text = PlayerPrefs.GetInt("playerScore", 0).ToString();
         level = SceneManager.GetActiveScene().buildIndex;
     }
@@ -28,9 +30,9 @@ public class LogicScript : MonoBehaviour
     void Update()
     {
         if (!gameIsOver) { 
-            if (Input.GetKeyDown(KeyCode.P) && !paused) {
+            if (Input.GetKeyDown(pauseKey) && !paused) {
                 pauseGame();
-            } else if (Input.GetKeyDown(KeyCode.P) && paused) {
+            } else if (Input.GetKeyDown(pauseKey) && paused) {
                 unPauseGame();
             }
         }
