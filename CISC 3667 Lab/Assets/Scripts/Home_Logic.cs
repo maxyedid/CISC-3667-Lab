@@ -27,6 +27,10 @@ public class Home_Logic : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
+    public void viewScores() {
+        SceneManager.LoadScene("High Scores");
+    }
+
     public void setVolume() {
         music.volume = volumeControl.value;
         PlayerPrefs.SetFloat("volume", volumeControl.value);
