@@ -7,12 +7,11 @@ public class PowerUpSpawn : MonoBehaviour
 
     public GameObject arrow;
     public float timer = 0;
-
     public float spawnRate;
     // Start is called before the first frame update
     void Start()
     {
-        spawnRate = (float)Random.Range(1f, 3f);
+        spawnRate = 0.5f;
     }
 
     // Update is called once per frame

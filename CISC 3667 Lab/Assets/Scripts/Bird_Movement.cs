@@ -5,18 +5,14 @@ using UnityEngine;
 public class Bird_Movement : MonoBehaviour
 {
     public Rigidbody2D birdBody;
-
     public float speed = 3;
 
     public int direction = -1;
 
     public float deadZone = 9f;
-
-    public LogicScript logic;
     // Start is called before the first frame update
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         birdBody.velocity = new Vector2(speed * direction, 0);
     }
 

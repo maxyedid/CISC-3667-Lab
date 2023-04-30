@@ -29,7 +29,8 @@ public class MovementScript : MonoBehaviour
         jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
         sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        numArrows = 0;
+        numArrows = 1;
+        logic.updateArrows(numArrows);
     }
 
     // Update is called once per frame

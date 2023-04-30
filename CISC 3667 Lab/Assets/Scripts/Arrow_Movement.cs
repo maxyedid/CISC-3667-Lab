@@ -6,11 +6,12 @@ public class Arrow_Movement : MonoBehaviour
 {
     public Rigidbody2D arrow;
     public float speed = 4;
-
     public float deadZone = 6f;
+    public LogicScript logic;
     // Start is called before the first frame update
     void Start()
     {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         arrow.velocity = new Vector2(0, speed);
     }
 
