@@ -6,10 +6,10 @@ public class BirdSpawn : MonoBehaviour
 {
     public GameObject bird;
     public float speed = 3;
-    public float timer = 0;
+    private float timer = 0;
     public float minTime = 3f;
     public float maxTime = 6f;
-    public float spawnRate;
+    private float spawnRate;
     // Start is called before the first frame update
     void Start()
     {

@@ -20,6 +20,8 @@ public class LogicScript : MonoBehaviour
     public GameObject nextLevelScreen;
     public KeyCode pauseKey;
     public Text numArrowsText;
+    public Text nameText;
+    public GameObject warningText;
     void Start()
     {
         pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
@@ -51,12 +53,17 @@ public class LogicScript : MonoBehaviour
         nextLevelScreen.SetActive(true);
     }
     public void loadNextScene() {
-        Time.timeScale = 1;
-        nextLevelScreen.SetActive(false);
         if (level != 3) {
         SceneManager.LoadScene(level + 1);
+        Time.timeScale = 1;
         } else {
+            if (nameText.text.Length > 0) {
+            PlayerPrefs.SetString("playerName", nameText.text);
             SceneManager.LoadScene("High Scores");
+            Time.timeScale = 1;
+            } else {
+                warningText.SetActive(true);
+            }
         }
     }
 

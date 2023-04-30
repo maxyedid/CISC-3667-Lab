@@ -43,8 +43,7 @@ public class Balloon_Movement : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag.Equals("Projectile")) {
-            Debug.Log("Balloon hit");
+        if (other.gameObject.tag.Equals("Projectile") && !logic.gameIsOver) {
             AudioSource.PlayClipAtPoint(hit.clip, new Vector2(0, 0), PlayerPrefs.GetFloat("volume", 1f));
             logic.addScore(currentScore);
             logic.winScreen();

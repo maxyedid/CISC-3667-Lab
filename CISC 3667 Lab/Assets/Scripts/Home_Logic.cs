@@ -8,12 +8,12 @@ public class Home_Logic : MonoBehaviour
 {
     public AudioSource music;
     public Slider volumeControl;
-    public string currentControl;
     // Start is called before the first frame update
     void Start()
     {
         music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         volumeControl.value = PlayerPrefs.GetFloat("volume", 1f);
+        PlayerPrefs.SetInt("playerScore", 0);
     }
 
     // Update is called once per frame
@@ -23,7 +23,6 @@ public class Home_Logic : MonoBehaviour
     }
 
     public void play() {
-        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("Level 1");
     }
 

@@ -8,10 +8,9 @@ public class powerUp : MonoBehaviour
     public Rigidbody2D rigidBody;
     public SpriteRenderer sprite;
     public float timer = 0;
-    public float disappearingRate = 5f;
-
-    public float aboutToDisappear = 8f;
-    public float destroyRate = 9f;
+    private float disappearingRate = 3f;
+    private float aboutToDisappear = 5f;
+    private float destroyRate = 6f;
     // Start is called before the first frame update
     void Update() {
         if (timer < destroyRate) {
