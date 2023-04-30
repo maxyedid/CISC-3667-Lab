@@ -12,15 +12,14 @@ public class MovementScript : MonoBehaviour
     public float jumpForce = 500.0f;
     public bool facingRight = true;
     public bool isGrounded = true;
-    public bool sprinting = false;
     public GameObject arrow;
     public float spawnRate = 1.0f;
     public float timer = 0;
     public int numArrows;
     public LogicScript logic;
-    public KeyCode fireKey;
-    public KeyCode jumpKey;
-    public KeyCode sprintKey;
+    private KeyCode fireKey;
+    private KeyCode jumpKey;
+    private KeyCode sprintKey;
     public bool isDead = false;
     // Start is called before the first frame update
     void Start()
@@ -29,8 +28,8 @@ public class MovementScript : MonoBehaviour
         jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
         sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        numArrows = 1;
-        logic.updateArrows(numArrows);
+       // numArrows = 1;
+        //logic.updateArrows(numArrows);
     }
 
     // Update is called once per frame
