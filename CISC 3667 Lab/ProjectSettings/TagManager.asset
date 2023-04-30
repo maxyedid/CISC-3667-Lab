@@ -12,6 +12,7 @@ TagManager:
   - Logic
   - Music
   - Bird
+  - Power Up
   layers:
   - Default
   - TransparentFX

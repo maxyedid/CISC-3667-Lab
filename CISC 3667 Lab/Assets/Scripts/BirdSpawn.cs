@@ -24,7 +24,7 @@ public class BirdSpawn : MonoBehaviour
         } else {
             spawnBird();
             timer = 0;
-            spawnRate = Random.Range(3, 6);
+            spawnRate = Random.Range(minTime, maxTime);
         }
     }
 

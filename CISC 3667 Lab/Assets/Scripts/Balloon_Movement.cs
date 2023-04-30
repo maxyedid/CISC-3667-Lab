@@ -49,6 +49,8 @@ public class Balloon_Movement : MonoBehaviour
             logic.addScore(currentScore);
             logic.winScreen();
             Destroy(gameObject);
+        } else if (other.gameObject.tag.Equals("Wall")) {
+            direction = 0 - direction;    
         }
     }
 

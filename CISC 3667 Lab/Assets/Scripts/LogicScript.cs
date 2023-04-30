@@ -19,7 +19,7 @@ public class LogicScript : MonoBehaviour
     public bool inSettings = false;
     public GameObject nextLevelScreen;
     public KeyCode pauseKey;
-
+    public Text numArrowsText;
     void Start()
     {
         pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
@@ -102,5 +102,8 @@ public class LogicScript : MonoBehaviour
     }
     public void changeKey() {
         pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
+    }
+    public void updateArrows(int numArrows) {
+        numArrowsText.text = numArrows.ToString();
     }
 }

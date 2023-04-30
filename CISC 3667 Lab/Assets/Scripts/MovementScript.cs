@@ -16,6 +16,7 @@ public class MovementScript : MonoBehaviour
     public GameObject arrow;
     public float spawnRate = 1.0f;
     public float timer = 0;
+    public int numArrows;
     public LogicScript logic;
     public KeyCode fireKey;
     public KeyCode jumpKey;
@@ -28,6 +29,7 @@ public class MovementScript : MonoBehaviour
         jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
         sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        numArrows = 0;
     }
 
     // Update is called once per frame
@@ -68,10 +70,12 @@ public class MovementScript : MonoBehaviour
     }
 
     private void fireArrow() {
-        if (timer >= spawnRate) {
+        if (timer >= spawnRate && numArrows > 0) {
             animator.Play("Fire");
             spawnArrow();
             timer = 0;
+            numArrows--;
+            logic.updateArrows(numArrows);
         }
     }
     private void spawnArrow() {
@@ -94,7 +98,7 @@ public class MovementScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag.Equals("Ground")) {
             isGrounded = true;
-        }
+        } 
     }
 
     public void die() {
@@ -112,6 +116,14 @@ public class MovementScript : MonoBehaviour
         if (other.gameObject.tag.Equals("Bird")) {
             die();
             logic.gameOver();
+        } else if (other.gameObject.tag.Equals("Power Up")) {
+            Debug.Log("Got to power up");
+            numArrows++;
+            if (numArrows > 10) {
+                numArrows = 10;
+            }
+            logic.updateArrows(numArrows);
+            Destroy(other.gameObject);
         }
     }
 }
