@@ -117,7 +117,6 @@ public class MovementScript : MonoBehaviour
             die();
             logic.gameOver();
         } else if (other.gameObject.tag.Equals("Power Up")) {
-            Debug.Log("Got to power up");
             numArrows++;
             if (numArrows > 10) {
                 numArrows = 10;
