@@ -30,11 +30,4 @@ public class Bird_Movement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag.Equals("Player")) {
-            Destroy(other.gameObject);
-            logic.gameOver();
-        }
-    }
 }

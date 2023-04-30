@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-
+    public Animator animator;
     public Rigidbody2D myRigidBody;
     public float speed = 7.0f;
     public float movement;
@@ -20,6 +20,7 @@ public class MovementScript : MonoBehaviour
     public KeyCode fireKey;
     public KeyCode jumpKey;
     public KeyCode sprintKey;
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +33,9 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!logic.paused) {
+        if (!logic.paused && !isDead) {
             movement = Input.GetAxis("Horizontal");
+            animator.SetFloat("Speed", Mathf.Abs(movement));
             if (Input.GetKey(jumpKey)) {
                 jumpPressed = true;
             }
@@ -72,6 +74,7 @@ public class MovementScript : MonoBehaviour
 
     private void fireArrow() {
         if (timer >= spawnRate) {
+            animator.Play("Fire");
             spawnArrow();
             timer = 0;
         }
@@ -85,6 +88,7 @@ public class MovementScript : MonoBehaviour
     }
 
     private void Jump() {
+        animator.Play("Jump");
         myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
         myRigidBody.AddForce(new Vector2(0, jumpForce));
 
@@ -98,9 +102,21 @@ public class MovementScript : MonoBehaviour
         }
     }
 
+    public void die() {
+        movement = 0;
+        animator.SetBool("Dead", true);
+        isDead = true;
+    }
     public void changeKeys() {
         fireKey = (KeyCode) PlayerPrefs.GetInt("fireKey",(int)(KeyCode.F));
         jumpKey = (KeyCode) PlayerPrefs.GetInt("jumpKey", (int)KeyCode.Space);
         sprintKey = (KeyCode) PlayerPrefs.GetInt("sprintKey", (int) KeyCode.LeftShift);
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag.Equals("Bird")) {
+            die();
+            logic.gameOver();
+        }
     }
 }
