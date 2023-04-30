@@ -9,8 +9,8 @@ public class LogicScript : MonoBehaviour
     // Start is called before the first frame update
 
     public int playerScore;
-    public bool hasScore;
     [SerializeField] public Text scoreText;
+    [SerializeField] public Text levelText;
     public int level;
     public GameObject pauseScreen;
     public bool paused = false;
@@ -25,6 +25,7 @@ public class LogicScript : MonoBehaviour
         pauseKey = (KeyCode) PlayerPrefs.GetInt("pauseKey", (int) KeyCode.P);
         scoreText.text = PlayerPrefs.GetInt("playerScore", 0).ToString();
         level = SceneManager.GetActiveScene().buildIndex;
+        levelText.text = level.ToString();
     }
 
     // Update is called once per frame

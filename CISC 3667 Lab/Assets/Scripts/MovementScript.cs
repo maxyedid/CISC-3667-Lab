@@ -99,7 +99,7 @@ public class MovementScript : MonoBehaviour
 
     public void die() {
         movement = 0;
-        animator.SetBool("Dead", true);
+        animator.Play("Death");
         isDead = true;
     }
     public void changeKeys() {
