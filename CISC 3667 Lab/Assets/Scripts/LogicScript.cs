@@ -40,6 +40,7 @@ public class LogicScript : MonoBehaviour
                 unPauseGame();
             }
         }
+        scoreText.text = PlayerPrefs.GetInt("playerScore", 0).ToString();
     }
     public void addScore(int score) {
         playerScore = PlayerPrefs.GetInt("playerScore", 0) + score;

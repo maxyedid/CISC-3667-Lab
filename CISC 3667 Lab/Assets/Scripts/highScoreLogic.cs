@@ -15,10 +15,8 @@ public class highScoreLogic : MonoBehaviour
     string playerName;
     void Start()
     {
-        playerScore = PlayerPrefs.GetInt("playerScore", 0);
+        playerScore = PlayerPrefs.GetInt("playerScore");
         playerName = PlayerPrefs.GetString("playerName");
-        PlayerPrefs.DeleteKey("playerScore");
-        PlayerPrefs.DeleteKey("playerName");
         saveScores();
     }
 
@@ -58,7 +56,6 @@ public class highScoreLogic : MonoBehaviour
 
 
     public void returnHome() {
-        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("Home Screen");
     }
 }

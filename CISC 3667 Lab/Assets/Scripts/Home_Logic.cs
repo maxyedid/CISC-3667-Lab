@@ -13,7 +13,6 @@ public class Home_Logic : MonoBehaviour
     {
         music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         volumeControl.value = PlayerPrefs.GetFloat("volume", 1f);
-        PlayerPrefs.SetInt("playerScore", 0);
     }
 
     // Update is called once per frame
@@ -23,10 +22,12 @@ public class Home_Logic : MonoBehaviour
     }
 
     public void play() {
+        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("Level 1");
     }
 
     public void viewScores() {
+        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("High Scores");
     }
 
