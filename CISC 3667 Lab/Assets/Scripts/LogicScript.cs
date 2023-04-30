@@ -54,6 +54,8 @@ public class LogicScript : MonoBehaviour
         nextLevelScreen.SetActive(false);
         if (level != 3) {
         SceneManager.LoadScene(level + 1);
+        } else {
+            SceneManager.LoadScene("High Scores");
         }
     }
 

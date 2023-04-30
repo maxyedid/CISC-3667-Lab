@@ -40,9 +40,9 @@ public class MovementScript : MonoBehaviour
                 jumpPressed = true;
             }
             if (Input.GetKey(sprintKey)) {
-                sprinting = true;
+                speed = 10;
             } else {
-                sprinting = false;
+                speed = 7;
             }
             if (Input.GetKey(fireKey)) {
                 fireArrow();
@@ -51,11 +51,6 @@ public class MovementScript : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (sprinting) {
-            speed = 10;
-        } else {
-            speed = 7;
-        }
         myRigidBody.velocity = new Vector2(speed * movement, myRigidBody.velocity.y);
         if (movement < 0 && facingRight || movement > 0 && !facingRight) {
             Flip();
