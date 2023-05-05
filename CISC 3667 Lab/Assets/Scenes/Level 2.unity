@@ -3326,7 +3326,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music: {fileID: 0}
   volumeControl: {fileID: 1953019780}
-  currentControl: 
 --- !u!1 &916988041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,11 +3592,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 5075631469183617861, guid: 1fa0a4407cd05c64b839045db9d12ccb, type: 3}
-  speed: 5
-  timer: 0
+  speed: 7
   minTime: 1
   maxTime: 3
-  spawnRate: 0
 --- !u!4 &1042243037
 Transform:
   m_ObjectHideFlags: 0
@@ -6804,7 +6801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 242919217389091847, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
       propertyPath: speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 242919217389091847, guid: 118e27f84ecf84e9a98e015909897372, type: 3}
       propertyPath: maxTime

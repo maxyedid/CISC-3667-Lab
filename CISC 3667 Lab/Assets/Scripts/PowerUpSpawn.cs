@@ -11,7 +11,7 @@ public class PowerUpSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnRate = 0.5f;
+        spawnRate = 0;
     }
 
     // Update is called once per frame

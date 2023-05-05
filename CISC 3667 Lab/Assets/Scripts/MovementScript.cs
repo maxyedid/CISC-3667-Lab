@@ -6,15 +6,15 @@ public class MovementScript : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D myRigidBody;
-    public float speed = 7.0f;
+    private float speed = 7.0f;
     public float movement;
-    public bool jumpPressed;
-    public float jumpForce = 500.0f;
-    public bool facingRight = true;
-    public bool isGrounded = true;
+    private bool jumpPressed;
+    private float jumpForce = 500.0f;
+    private bool facingRight = true;
+    private bool isGrounded = true;
     public GameObject arrow;
-    public float spawnRate = 1.0f;
-    public float timer = 0;
+    private float fireSpawnRate = 0.3f;
+    private float timer = 0;
     public int numArrows;
     public LogicScript logic;
     private KeyCode fireKey;
@@ -63,14 +63,14 @@ public class MovementScript : MonoBehaviour
             jumpPressed = false;
         }
 
-        if (timer < spawnRate) {
+        if (timer < fireSpawnRate) {
             timer += Time.deltaTime;
         }
 
     }
 
     private void fireArrow() {
-        if (timer >= spawnRate && numArrows > 0) {
+        if (timer >= fireSpawnRate && numArrows > 0) {
             animator.Play("Fire");
             spawnArrow();
             timer = 0;

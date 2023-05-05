@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.3
+  m_GravityScale: 0.7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -123,9 +123,6 @@ MonoBehaviour:
   rigidBody: {fileID: 7601592522772968656}
   sprite: {fileID: 7601592522772968663}
   timer: 0
-  disappearingRate: 6
-  aboutToDisappear: 8
-  destroyRate: 9
 --- !u!61 &7601592522772968651
 BoxCollider2D:
   m_ObjectHideFlags: 0
